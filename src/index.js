@@ -23,3 +23,10 @@ function* generatePrimesUpToN(inclusiveUpperLimit = Number.MAX_SAFE_INTEGER) {
     }
   }
 }
+
+function* generateFirstNPrimes(n = 1000) {
+  const primes = generatePrimesUpToN();
+  for (let i = 0; i < n; ++i) {
+    yield primes.next().value;
+  }
+}
