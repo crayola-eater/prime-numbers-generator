@@ -14,3 +14,12 @@ function isPrime(someNumber) {
   }
   return true;
 }
+
+function* generatePrimesUpToN(inclusiveUpperLimit = Number.MAX_SAFE_INTEGER) {
+  yield 2;
+  for (let i = 3; i <= inclusiveUpperLimit; i += 2) {
+    if (isPrime(i)) {
+      yield i;
+    }
+  }
+}
