@@ -15,7 +15,9 @@ function isPrime(someNumber) {
   return true;
 }
 
-function* generatePrimesUpToN(inclusiveUpperLimit = Number.MAX_SAFE_INTEGER) {
+export function* generatePrimesUpToN(
+  inclusiveUpperLimit = Number.MAX_SAFE_INTEGER
+) {
   yield 2;
   for (let i = 3; i <= inclusiveUpperLimit; i += 2) {
     if (isPrime(i)) {
@@ -24,7 +26,7 @@ function* generatePrimesUpToN(inclusiveUpperLimit = Number.MAX_SAFE_INTEGER) {
   }
 }
 
-function* generateFirstNPrimes(n = 1000) {
+export function* generateFirstNPrimes(n = 1000) {
   const primes = generatePrimesUpToN();
   for (let i = 0; i < n; ++i) {
     yield primes.next().value;
